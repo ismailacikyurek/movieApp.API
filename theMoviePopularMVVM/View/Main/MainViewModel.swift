@@ -33,7 +33,7 @@ class MainViewModel:NSObject {
     
     func theMovieDbService() {
         let urlNowDetails = "https://api.themoviedb.org/3/movie/now_playing?api_key=e1f05eb6d6888cc4a751a49802070b48&language=en-US&page=1"
-        service.fethAllPostsPopular(url: urlNowDetails) { [weak self] model in
+        service.fethAllPosts(url: urlNowDetails) { [weak self] model in
             self?.delegate?.showDataPopular(content: model)
             
         } onFail: { error in

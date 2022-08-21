@@ -33,7 +33,7 @@ class DetailsViewModel:NSObject {
     func theMovieDbService(id : Int) {
         //Details
         let urlDetails = "https://api.themoviedb.org/3/movie/\(id)?api_key=e1f05eb6d6888cc4a751a49802070b48"
-        service.fethAllPostsDetails(url: urlDetails) { [weak self] model in
+        service.fethAllPosts(url: urlDetails) { [weak self] model in
             self?.delegate?.showDataDetails(content: model)
             
         } onFail: { error in
@@ -42,7 +42,7 @@ class DetailsViewModel:NSObject {
         
         //Video
         let urlVideo = "https://api.themoviedb.org/3/movie/\(id)/videos?api_key=e1f05eb6d6888cc4a751a49802070b48&language=en-US"
-        service.fethAllPostsVideo(url: urlVideo) { [weak self] model in
+        service.fethAllPosts(url: urlVideo) { [weak self] model in
             self?.delegate?.showDataVideo(content: model)
             
         } onFail: { error in
@@ -51,7 +51,7 @@ class DetailsViewModel:NSObject {
         //Cast
         let urlCast = "https://api.themoviedb.org/3/movie/\(id)/credits?api_key=e1f05eb6d6888cc4a751a49802070b48"
         print(urlCast)
-        service.fethAllPostsCast(url: urlCast) { [weak self] model in
+        service.fethAllPosts(url: urlCast) { [weak self] model in
             self?.delegate?.showDataCast(content: model)
             
         } onFail: { error in
