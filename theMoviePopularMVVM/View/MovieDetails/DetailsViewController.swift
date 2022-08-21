@@ -55,24 +55,24 @@ extension DetailsViewController : DetailsViewModelOutputProtocol {
         }
     
     func showDataDetails(content: DetailsModel) {
-        labelMovieTitle.text = content.title
-        labelSummary.text = content.overview
-        guard let urlStr = content.posterPath else { return }
-        let UrlFront = "https://image.tmdb.org/t/p/w500"
-        let Url = "\(UrlFront)\(urlStr)"
-        imageBack.kf.setImage(with:URL(string: Url))
-        imageFront.kf.setImage(with:URL(string: Url))
-        imageBack.layer.opacity = 0.1
-        imageFront.layer.cornerRadius = 15
-        let voteAverage = Int(content.voteAverage!) / 2
-        
-        switch voteAverage {
-        case 1 : imageStar.image = UIImage(named: "one")
-        case 2 : imageStar.image = UIImage(named: "two")
-        case 3 : imageStar.image = UIImage(named: "three")
-        case 4 : imageStar.image = UIImage(named: "four")
-        default: imageStar.image = UIImage(named: "five")
-        }
+            labelMovieTitle.text = content.title
+            labelSummary.text = content.overview
+            guard let urlStr = content.posterPath else { return }
+            let UrlFront = "https://image.tmdb.org/t/p/w500"
+            let Url = "\(UrlFront)\(urlStr)"
+            imageBack.kf.setImage(with:URL(string: Url))
+            self.imageFront.kf.setImage(with:URL(string: Url))
+            imageBack.layer.opacity = 0.1
+            self.imageFront.layer.cornerRadius = 15
+            let voteAverage = Int(content.voteAverage!) / 2
+            
+            switch voteAverage {
+            case 1 : imageStar.image = UIImage(named: "one")
+            case 2 : imageStar.image = UIImage(named: "two")
+            case 3 : imageStar.image = UIImage(named: "three")
+            case 4 : imageStar.image = UIImage(named: "four")
+            default: imageStar.image = UIImage(named: "five")
+            }
     }
 }
 
